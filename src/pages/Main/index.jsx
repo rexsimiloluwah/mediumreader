@@ -81,12 +81,12 @@ const Main = props => {
           //end fix stop after a while bug
     }
 
-      const onClickResume = () => {
-        setPaused(false)
-        if(synth.paused) { /* unpause/resume narration */
-            synth.resume();
-        }
-      }
+    //   const onClickResume = () => {
+    //     setPaused(false)
+    //     if(synth.paused) { /* unpause/resume narration */
+    //         synth.resume();
+    //     }
+    //   }
       
 
     const onClickPause = () => {
