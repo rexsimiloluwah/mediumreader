@@ -4,6 +4,23 @@ import style from './index.module.scss';
 import Select from 'react-select';
 import Loader from 'react-loader-spinner';
 import audioWave from '../../assets/images/audio_wave.png';
+import computeWordFreq from '../../utils/wordFrequency';
+import {WordCloud} from 'word-cloud-react';
+
+const TextCloud = ({data}) => {
+    return(
+    <WordCloud 
+        width={"auto"} 
+        maxFont={40} 
+        minFont={10} 
+        logFunc={(x)=> Math.log2(x) * 5} 
+        data={data}
+        clickEvent={(x)=>console.log(x.word)} 
+        color={['#71803F', '#F8AC1D','#598EC0','#E2543E','#1A3051','#F46F73','#8A87BB','#56CFCD','#297373','#FF8552','#F2E863','#C2F8CB','#3A6EA5','#FF6700','#C0C0C0','#4E4381','#523CBD',]}
+    />
+    )
+}
+
 
 const Main = props => {
 
@@ -20,6 +37,7 @@ const Main = props => {
     const [pitch, setPitch] = React.useState(1);
     const [rate, setRate] = React.useState(1);
     const [errorMessage, setErrorMessage] = React.useState(null);
+    const [wordcloud, setWordCloud] = React.useState([]);
 
     window.onload = () => {
         synth.cancel();
@@ -143,6 +161,8 @@ const Main = props => {
         })
         .then( result => {
             setContent(result.data);
+            setWordCloud(computeWordFreq(result.data));
+            console.log(computeWordFreq(result.data))
             setLoading(false);
         })
         .catch(err => {
@@ -197,6 +217,7 @@ const Main = props => {
                 </div>
             }
              
+             {wordcloud.length ? <TextCloud data = {wordcloud} />: ""}
             </div>
             <p className = {style["footer"]}>Still in development, <i className = "bx bxl-github"></i> View <a href="https://github.com/rexsimiloluwah/mediumreader">Github</a></p>
             </div>
