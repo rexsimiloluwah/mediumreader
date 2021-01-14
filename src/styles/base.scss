@@ -1,0 +1,104 @@
+/*** Variables ***/
+
+/* ==================
+==== Colors ==========
+=====================
+**/
+
+$primaryGradient: linear-gradient(
+  331.03deg,
+  rgba(153, 221, 242, 0.95) 13.22%,
+  rgba(1, 109, 143, 0.7) 86.79%
+);
+
+$primary-color: #a2d8e8;
+$primary-color-dark: #035973;
+$primary-color-light: #f5f7f7;
+$border-radius: 6px;
+$border-color: #8692a6;
+$text-light: #8692a6;
+$text-dark: #1D293F;
+$label-color: #696f79;
+
+/*===================
+===== Breakpoints ==========
+=====================
+**/
+
+$break-point-s: 576px;
+$break-point-md: 782px;
+$break-point-l: 992px;
+$break-point-xl: 1024px;
+$break-point-xxl: 1200px;
+
+/* ==================
+==== Fonts ==========
+=====================
+**/
+
+@font-face {
+  font-family: "circular_std_book";
+  src: url("../assets/fonts/Circular-Std-Book.ttf")
+    format("truetype");
+}
+
+/*** Extends ***/
+
+%h {
+  font-family: "circular_std_book";
+  font-weight: bold;
+  margin: 1rem 0 0 0;
+  // font-weight: bold;
+}
+
+%h1 {
+  @extend %h;
+  font-size: 34px;
+  line-height: 1.25em;
+}
+
+%body-medium {
+  font-family: "circular_std_book";
+  font-size: 18px;
+}
+
+%body-normal {
+  font-family: "circular_std_book";
+  font-size: 16px;
+}
+
+h1 {
+  @extend %h;
+  font-size: 44px;
+  line-height: calc(44px * 1.3);
+}
+h2 {
+  @extend %h;
+
+  font-size: 36px;
+  line-height: calc(36px * 1.3);
+}
+h3 {
+  @extend %h;
+
+  font-size: 28px;
+  line-height: calc(28px * 1.3);
+}
+h4 {
+  @extend %h;
+
+  font-size: 24px;
+  line-height: calc(24px * 1.3);
+}
+
+label,
+p,
+li,
+ul,
+span {
+  @extend %body-normal;
+  font-size: 16px;
+  font-style: normal;
+  margin: .5rem 0;
+  line-height: calc(16px * 1.7);
+}

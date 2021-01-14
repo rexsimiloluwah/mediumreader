@@ -1,0 +1,160 @@
+@import '../../styles/base.scss';
+
+section{
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.container{
+    position: absolute;
+    width: 60%;
+    border-radius: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.container__main,
+.form__container{
+    background: $primaryGradient;
+    padding: 2.5rem 2rem;
+    border-radius: 20px;
+    
+    img{
+        display: block;
+        margin: 2rem auto;
+
+    }
+}
+
+.header{
+    text-align: center;
+    h4{
+        color: $primary-color-dark;
+        text-transform: uppercase;
+        font-size: 24px;
+    }
+    p{
+        margin: 1rem auto;
+        color: #444;
+    }
+}
+
+.form__group{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    margin: 1rem 0;
+
+    input, button{
+        padding: 1rem;
+        outline: none;
+        box-shadow: none;
+        border: 1px solid transparent;
+    }
+
+    input{
+        flex: 70%;
+    }
+    button{
+        flex: 20%;
+        background: $primary-color-dark;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+        text-transform: uppercase;
+        color: #FFFFFF;
+        cursor: pointer;
+        opacity: 0.85;
+        &:hover{
+            opacity: 1;
+        }
+        i{
+            font-size: 20px;
+            vertical-align: middle;
+        }
+    }
+}
+
+input[type=range]{
+    width: 100%;
+}
+
+input[type=range]{
+    -webkit-appearance: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    height: .35em;
+    background: white;
+    border: 1px solid $primary-color;
+    border-radius: 3px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 1.2em;
+    width: 1.2em;
+    border-radius: 50%;
+    background: $primary-color-dark;
+    margin-top: -5px;
+}
+
+input[type=range]:focus {
+    outline: none;
+}
+
+.audio__container{
+    background: $primary-color-light;
+    border: 1px solid $primary-color;
+    padding: 10px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    margin: 1rem auto;
+
+    button.stop__btn{
+        margin-right: 0;
+    }
+
+    button{
+        outline: none;
+        box-shadow: none;
+        border: none;
+        background: transparent;
+
+        i{
+            font-size: 50px;
+            color: $primary-color-dark;
+        }
+
+        :hover{
+            transform: scale(1.2);
+            i{
+                color: 'red'
+            }
+        }
+        
+    }
+}
+
+.loader{
+    display: flex;
+    justify-content: center;
+}
+
+p.footer{
+    text-align: center;
+    vertical-align: middle;
+    i{
+        font-size: 20px;
+    }
+}
+@media (max-width : 768px){
+    .container{
+        width: 80%;
+    }
+}
